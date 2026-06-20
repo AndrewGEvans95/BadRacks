@@ -3,149 +3,143 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Submit a bad bike rack to the Bad Racks Seattle crowdsourced catalog." />
-  <title>Submit a Rack — Bad Racks Seattle</title>
+  <meta name="description" content="Report a bad bike rack to the Bad Racks Seattle field guide." />
+  <meta name="theme-color" content="#16130f" />
+  <title>Report a Rack — Bad Racks Seattle</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <header class="site-header">
-    <nav class="site-nav" aria-label="Main navigation">
-      <div class="site-title-group">
-        <a href="index.html" style="text-decoration: none;">
-          <h1 class="site-title">Bad&nbsp;<span>Racks</span>&nbsp;Seattle</h1>
-          <p class="site-subtitle">Crowdsourced catalog of Seattle's worst bike parking</p>
+  <!-- ── Masthead ── -->
+  <header class="masthead">
+    <div class="masthead-inner">
+      <p class="dateline">
+        <span>The Field Guide to Awful Bike Parking</span>
+        <span class="edition">Seattle Edition</span>
+      </p>
+      <div class="nameplate">
+        <a href="index.html" aria-label="Bad Racks Seattle — home">
+          <h1><span class="bad">Bad</span> Racks <span class="city">Seattle</span></h1>
         </a>
+        <p class="tagline">Documenting the city's most hostile bike racks — one disappointment at a time.</p>
       </div>
-      <a href="index.html" class="btn-submit-nav" aria-label="Back to rack catalog">
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
-          <line x1="19" y1="12" x2="5" y2="12"/>
-          <polyline points="12 19 5 12 12 5"/>
+      <a href="index.html" class="btn-submit-nav" aria-label="Back to the catalog">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="19" y1="12" x2="5" y2="12" /><polyline points="12 19 5 12 12 5" />
         </svg>
-        View All Racks
+        The Catalog
       </a>
-    </nav>
+    </div>
   </header>
 
-  <main>
-    <div class="submit-container">
-      <h2>Submit a Bad Rack</h2>
-      <p class="intro">Found a bike rack that's broken, blocked, badly placed, or just plain useless? Tell us about it. Your submission helps build a better record of Seattle's worst bike parking so we can push for improvements.</p>
+  <main class="submit-container">
+    <h2 class="page-title">Report a Bad Rack</h2>
+    <p class="intro">Found a rack that's broken, blocked, badly placed, or just plain useless? File it here. Every report helps build the record we need to push the city for better bike parking.</p>
 
-      <div class="form-card">
-        <form id="submit-form" novalidate>
+    <div id="form-wrapper">
+      <form class="form-card" id="submit-form" novalidate>
 
-          <div class="form-group">
-            <label for="nickname">Nickname <span class="required" aria-label="required">*</span></label>
-            <input
-              type="text"
-              id="nickname"
-              name="nickname"
-              required
-              placeholder="e.g. The Avalanche, The Ghost Rack"
-              maxlength="80"
-              autocomplete="off"
-            />
-          </div>
+        <div class="form-group">
+          <label for="nickname">Nickname <span class="required" aria-hidden="true">*</span></label>
+          <input type="text" id="nickname" name="nickname" required placeholder="e.g. The Avalanche, The Ghost Rack" maxlength="80" autocomplete="off" />
+        </div>
 
-          <div class="form-group">
-            <label for="address">Street Address <span class="required" aria-label="required">*</span></label>
-            <input
-              type="text"
-              id="address"
-              name="address"
-              required
-              placeholder="e.g. 123 Pike St, Seattle, WA"
-              maxlength="200"
-              autocomplete="street-address"
-            />
-          </div>
+        <div class="form-group">
+          <label for="neighborhood">Neighborhood <span class="required" aria-hidden="true">*</span></label>
+          <input type="text" id="neighborhood" name="neighborhood" required placeholder="e.g. Capitol Hill, Ballard, Fremont" maxlength="80" autocomplete="off" />
+        </div>
 
-          <div class="form-group">
-            <label for="neighborhood">Neighborhood <span class="required" aria-label="required">*</span></label>
-            <input
-              type="text"
-              id="neighborhood"
-              name="neighborhood"
-              required
-              placeholder="e.g. Capitol Hill, Ballard, Fremont"
-              maxlength="80"
-              autocomplete="off"
-            />
-          </div>
+        <div class="form-group">
+          <label for="address">Street Address <span class="required" aria-hidden="true">*</span></label>
+          <input type="text" id="address" name="address" required placeholder="e.g. 400 Pine St, Seattle, WA 98101" maxlength="200" autocomplete="street-address" />
+        </div>
 
-          <hr class="form-divider" />
+        <div class="form-group">
+          <label for="type">Type of Bad <span class="required" aria-hidden="true">*</span></label>
+          <select id="type" name="type" required>
+            <option value="" disabled selected>Select a type…</option>
+            <option value="Wave Rack">Wave Rack — slides bikes into each other</option>
+            <option value="Staple Too Loose">Staple Too Loose — wobbly or badly anchored</option>
+            <option value="Wrong Orientation">Wrong Orientation — installed sideways or backwards</option>
+            <option value="Blocked">Blocked — obstructed by signs, furniture, or vehicles</option>
+            <option value="Inaccessible">Inaccessible — locked gate, wrong hours, unreachable</option>
+            <option value="Sidewalk Obstacle">Sidewalk Obstacle — blocks pedestrian flow</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
 
-          <div class="form-group">
-            <label for="description">What makes it bad? <span class="required" aria-label="required">*</span></label>
-            <textarea
-              id="description"
-              name="description"
-              rows="4"
-              required
-              placeholder="Describe the specific problem — is it wobbly, inaccessible, in the way, rotated wrong? Be as specific as possible."
-              maxlength="1000"
-            ></textarea>
-          </div>
+        <div class="form-group">
+          <label for="grade">Severity Grade <span class="opt">(your call)</span></label>
+          <select id="grade" name="grade">
+            <option value="C-">C- — mildly annoying</option>
+            <option value="D" selected>D — genuinely bad</option>
+            <option value="D-">D- — barely usable</option>
+            <option value="F">F — actively hostile</option>
+          </select>
+        </div>
 
-          <div class="form-group">
-            <label for="type">Type of Problem <span class="required" aria-label="required">*</span></label>
-            <select id="type" name="type" required>
-              <option value="" disabled selected>Select a type&hellip;</option>
-              <option value="Wave Rack">Wave Rack</option>
-              <option value="Staple Too Loose">Staple Too Loose</option>
-              <option value="Blocked">Blocked</option>
-              <option value="Inaccessible">Inaccessible</option>
-              <option value="Sidewalk Obstacle">Sidewalk Obstacle</option>
-              <option value="Wrong Orientation">Wrong Orientation</option>
-            </select>
-          </div>
+        <hr class="form-divider" />
 
-          <div class="form-group">
-            <label for="photo">Photo (optional)</label>
-            <input
-              type="file"
-              id="photo"
-              name="photo"
-              accept="image/*"
-              aria-describedby="photo-hint"
-            />
-            <small id="photo-hint" style="color: var(--color-muted); font-size: 0.78rem; margin-top: 2px;">JPG, PNG, or HEIC — max 10 MB</small>
-          </div>
+        <div class="form-group">
+          <label for="description">What makes it bad? <span class="required" aria-hidden="true">*</span></label>
+          <textarea id="description" name="description" required placeholder="Describe the specific problem — wobbly, inaccessible, in the way, rotated wrong? The more specific, the better." maxlength="1000"></textarea>
+        </div>
 
-          <button type="submit" class="btn-submit-form">Submit This Rack</button>
+        <div class="form-group">
+          <label for="photo">Photo <span class="opt">(optional)</span></label>
+          <input type="file" id="photo" name="photo" accept="image/*" capture="environment" />
+        </div>
 
-        </form>
-      </div>
+        <button type="submit" class="btn-submit-form">File This Report</button>
+      </form>
+    </div>
 
-      <div id="thanks-message" role="alert" aria-live="polite">
-        <div class="thanks-icon" aria-hidden="true">&#x1F6B2;</div>
-        <h3>Thanks for the report!</h3>
-        <p>Your submission has been received. We'll review it and add it to the catalog soon. Seattle's cyclists appreciate you.</p>
-        <a href="index.html" class="btn-back">
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
-            <line x1="19" y1="12" x2="5" y2="12"/>
-            <polyline points="12 19 5 12 12 5"/>
-          </svg>
-          Back to all racks
-        </a>
-      </div>
+    <div id="thanks-message" role="alert" aria-live="polite">
+      <div class="thanks-icon" aria-hidden="true">🚲</div>
+      <h3>Report filed</h3>
+      <p>We got it. We'll review your submission and add it to the catalog soon. Seattle's cyclists thank you.</p>
+      <a href="index.html" class="btn-back">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="19" y1="12" x2="5" y2="12" /><polyline points="12 19 5 12 12 5" />
+        </svg>
+        Back to the Catalog
+      </a>
     </div>
   </main>
 
   <footer class="site-footer">
     <p><strong>Bad Racks Seattle</strong></p>
-    <p>A community project to document and improve bike parking across the city.</p>
-    <p><a href="index.html">Browse the catalog</a></p>
+    <p>A community field guide to fixing the city's worst bike parking, one rack at a time.</p>
+    <p><a href="index.html">Browse the catalog →</a></p>
   </footer>
 
   <script>
-    document.querySelector('form').addEventListener('submit', function (e) {
-      e.preventDefault();
-      this.style.display = 'none';
-      document.getElementById('thanks-message').style.display = 'block';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    (function () {
+      var form = document.getElementById('submit-form');
+      var wrapper = document.getElementById('form-wrapper');
+      var thanks = document.getElementById('thanks-message');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var required = form.querySelectorAll('[required]');
+        var ok = true;
+        required.forEach(function (field) {
+          if (!field.value.trim()) {
+            ok = false;
+            field.style.boxShadow = '0 0 0 2px var(--accent)';
+            field.addEventListener('input', function () { field.style.boxShadow = ''; }, { once: true });
+          }
+        });
+        if (!ok) { required[0].focus(); return; }
+
+        wrapper.style.display = 'none';
+        thanks.style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
   </script>
 
 </body>
