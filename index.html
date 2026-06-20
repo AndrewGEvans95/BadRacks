@@ -9,14 +9,11 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preconnect" href="https://tile.openstreetmap.org" crossorigin />
+  <link rel="preconnect" href="https://staticmap.openstreetmap.de" />
+  <link rel="preconnect" href="https://tile.openstreetmap.org" />
 
-  <!-- Leaflet (maps) -->
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-    crossorigin="" />
+  <!-- Leaflet (used only for the interactive Map View) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -99,11 +96,8 @@
     <span class="attrib">Maps &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors</span>
   </footer>
 
-  <!-- Leaflet JS -->
-  <script
-    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-    crossorigin=""></script>
+  <!-- Leaflet JS (Map View only; the app works without it) -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
   <script src="data.js"></script>
   <script src="app.js"></script>

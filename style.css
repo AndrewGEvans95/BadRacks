@@ -281,21 +281,52 @@ button, input, select, textarea { font: inherit; color: inherit; }
 }
 .rack-card:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--ink); }
 
-/* card hero = live mini-map */
+/* card hero = static map thumbnail with overlaid pin */
 .card-map {
   position: relative;
   height: 150px;
+  overflow: hidden;
   background: var(--paper-2);
   border-bottom: 2px solid var(--ink);
-  z-index: 0;
 }
-.card-map .leaflet-container { background: var(--paper-2); }
-.card-map-loading {
+.card-tile {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  background: var(--paper-2);
+}
+/* fallback shown only if the map image fails to load */
+.map-fallback {
   position: absolute; inset: 0;
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Archivo', sans-serif; font-size: .72rem; font-weight: 700;
-  letter-spacing: .12em; text-transform: uppercase; color: var(--ink-faint);
+  display: none;
+  flex-direction: column; align-items: center; justify-content: center; gap: .15rem;
+  background:
+    repeating-linear-gradient(45deg, var(--paper-2) 0 10px, var(--paper) 10px 20px);
+  text-align: center; padding: .5rem;
 }
+.map-fallback .mf-hood {
+  font-family: 'Archivo', sans-serif; font-weight: 800; font-size: .95rem;
+  text-transform: uppercase; letter-spacing: .03em; color: var(--ink);
+}
+.map-fallback .mf-coord {
+  font-family: 'Archivo', sans-serif; font-size: .68rem; font-weight: 600;
+  letter-spacing: .06em; color: var(--ink-faint);
+}
+.card-map.map-failed .card-tile,
+.card-map.map-failed .map-pin { display: none; }
+.card-map.map-failed .map-fallback { display: flex; }
+
+/* center pin marking the rack's exact location */
+.map-pin {
+  position: absolute; left: 50%; top: 50%;
+  transform: translate(-50%, -100%);
+  width: 30px; height: 30px;
+  color: var(--accent);
+  filter: drop-shadow(0 2px 2px rgba(0,0,0,.35));
+  pointer-events: none;
+}
+.map-pin svg { width: 100%; height: 100%; }
 
 /* grade stamp overlaid on hero */
 .grade-stamp {
@@ -391,6 +422,12 @@ button, input, select, textarea { font: inherit; color: inherit; }
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   background: var(--paper-2);
+}
+.map-unavailable {
+  height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; padding: 2rem;
+  font-size: .95rem; color: var(--ink-soft);
 }
 
 /* leaflet popup styled to match */
